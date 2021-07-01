@@ -22,5 +22,9 @@ fn main() {
         }
     }
 
+    // add other answer
+    // use std::cmp::min;
+    // let result = a.iter().sum() - min(min(a,b),c);
+
     println!("{}", result);
 }
