@@ -11,3 +11,11 @@ edition = "2018"
 [[bin]]
 name = "B"
 path = "src/B.rs"
+
+[[bin]]
+name = "C"
+path = "src/C.rs"
+
+[[bin]]
+name = "D"
+path = "src/D.rs"
