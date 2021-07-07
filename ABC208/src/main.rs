@@ -1,30 +1,22 @@
-use std::io;
+use std::io::{self, Read};
 
-fn input() -> Vec<usize>{
+fn input() -> (usize, usize) {
     let mut buffer = String::new();
-    io::stdin().read_line(&mut buffer).unwrap();
+    io::stdin().read_to_string(&mut buffer).unwrap();
 
-    let a: Vec<usize> = buffer.split_whitespace()
-        .map(|x| x.parse().unwrap())
-        .collect();
+    let mut iter = buffer.split_whitespace();
+    let a: usize = iter.next().unwrap().parse().unwrap();
+    let b: usize = iter.next().unwrap().parse().unwrap();
 
-    a
+    (a, b)
 }
 
 fn main() {
-    let a = input();
-    let total: usize = a.iter().sum();
-    let mut result = 0;
+    let (a, b) = input();
 
-    for i in a {
-        if result <= total - i {
-            result = total - i;
-        }
+    if a <= b && b <= 6 * a {
+        println!("Yes");
+    } else {
+        println!("No");
     }
-
-    // add other answer
-    // use std::cmp::min;
-    // let result = a.iter().sum() - min(min(a,b),c);
-
-    println!("{}", result);
 }
